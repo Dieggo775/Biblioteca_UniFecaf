@@ -1,0 +1,227 @@
+/* Reset global */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Geneva, Tahoma, sans-serif;
+  line-height: 1.5;
+  color: #222;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Classes utilitárias */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  width: 100%;
+  padding: 60px 0;
+}
+
+.background-img-default {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.content-auto-height {
+  min-height: 100px;
+  height: auto;
+  overflow: hidden;
+}
+
+h2 {
+  font-family: Arial, sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+p {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  margin-bottom: 24px;
+}
+
+/* Header */
+header {
+  width: 100%;
+  min-height: 50vh;
+  background: aqua url("/images/capa_menu.png") center / cover no-repeat;
+}
+
+/* Main */
+main {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Banner 1 */
+#banner1 {
+  width: 100%;
+  min-height: 500px;
+  background: blue url("/images/capa-default.png") center / cover no-repeat;
+}
+
+/* Sobre biblioteca */
+#sobre-biblioteca {
+  width: 100%;
+  background-color: rgba(253, 253, 253, 0.637);
+  padding: 60px 0;
+}
+
+#sobre-biblioteca .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+#sobre-biblioteca p {
+  flex: 1 1 300px;
+  margin-bottom: 0;
+}
+
+#sobre-biblioteca img {
+  flex: 1 1 200px;
+  max-width: 250px;
+}
+
+/* Banner 2 */
+#banner2 {
+  width: 100%;
+  min-height: 650px;
+  background: url("/images/medium_Capas_para_materiais_gratuitos_3_dce86b4cc1.png")
+    center / cover no-repeat fixed;
+}
+
+/* Nossos livros */
+#nossos-livros {
+  width: 100%;
+  min-height: 1000px;
+  background-color: rgba(4, 56, 228, 0.685);
+  padding: 60px 0;
+}
+
+#nossos-livros .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+#nossos-livros img {
+  flex: 1 1 250px;
+  max-width: 280px;
+}
+
+#nossos-livros p {
+  flex: 2 1 400px;
+  margin-bottom: 0;
+}
+
+/* Unidades */
+#unidades {
+  width: 100%;
+  min-height: 100vh;
+  background: url("/images/bg-banner-pos.webp") center / cover no-repeat fixed;
+  padding: 60px 0;
+  color: white;
+}
+
+#unidades .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
+}
+
+#unidades h2,
+#unidades h3,
+#unidades p {
+  color: white;
+}
+
+#unidades img {
+  flex: 1 1 350px;
+  max-width: 500px;
+}
+
+#unidades .texto {
+  flex: 1 1 300px;
+}
+
+/* Contatos */
+#contatos {
+  width: 100%;
+  min-height: 650px;
+  background:
+    rgba(253, 253, 253, 0.637)
+    url("/images/UniFECAF-e-a-comunicacao-1024x1024.webp")
+    center / contain no-repeat;
+  padding: 60px 0;
+}
+
+/* Rodapé */
+footer {
+  width: 100%;
+  min-height: 60px;
+  background-color: rgba(18, 178, 241, 0.637);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+}
+
+footer p {
+  margin: 0;
+  padding: 0;
+  font-family: "Lucida Sans", sans-serif;
+  text-align: center;
+}
+
+/* Responsividade */
+@media (max-width: 799px) {
+  header {
+    background-color: green;
+    background-image: none;
+  }
+
+  #banner2 {
+    background-image: none;
+    background-attachment: scroll;
+  }
+
+  #sobre-biblioteca .container,
+  #nossos-livros .container,
+  #unidades .container {
+    flex-direction: column;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}
