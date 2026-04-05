@@ -10,6 +10,7 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+  scroll-padding-top: 100px;
 }
 
 body {
@@ -63,14 +64,6 @@ p {
 }
 
 /* Header */
-/* header {
-  width: 100%;
-  min-height: 40vh;
-  background: aqua url("/images/Banner_principal.png") center center / cover no-repeat;
-  position: relative;
-} */
-
-/* Menu fixo transparente */
 header nav {
   position: fixed;
   top: 0;
@@ -80,6 +73,37 @@ header nav {
   padding: 20px 0;
   z-index: 1000;
   backdrop-filter: blur(4px);
+}
+
+.nav-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.menu-toggle-checkbox {
+  display: none;
+}
+
+.menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  transition: 0.3s ease;
 }
 
 .nav-menu {
@@ -124,8 +148,8 @@ main {
 /* Banner 1 */
 #banner1 {
   width: 100%;
-min-height: 600px;
-background: url("/images/unifecaf-61a9f2a3ce38557cb22ede12355a89a3.jpeg") center top / contain no-repeat fixed;
+  min-height: 600px;
+  background: url("/images/unifecaf-61a9f2a3ce38557cb22ede12355a89a3.jpeg") center top / contain no-repeat fixed;
 }
 
 /* Sobre biblioteca */
@@ -135,19 +159,18 @@ background: url("/images/unifecaf-61a9f2a3ce38557cb22ede12355a89a3.jpeg") center
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  padding: 10px 0;
+  padding: 10px 0 40px;
 }
 
-#sobre-biblioteca h2{
-  color:white;
+#sobre-biblioteca h2 {
+  color: white;
 }
 
 #conteudo-sobre-biblioteca {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
   width: 100%;
-  flex-direction: row;
 }
 
 #conteudo1,
@@ -159,14 +182,13 @@ background: url("/images/unifecaf-61a9f2a3ce38557cb22ede12355a89a3.jpeg") center
 
 #conteudo1,
 #conteudo2 {
-  padding: 20%;
+  padding: 5%;
 }
 
 #conteudo1 p,
 #conteudo2 p {
   color: #fdfdfd;
   font-size: large;
-
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   padding: 24px;
@@ -177,9 +199,16 @@ background: url("/images/unifecaf-61a9f2a3ce38557cb22ede12355a89a3.jpeg") center
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
+#imagem-da-biblioteca {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 #imagem-da-biblioteca img {
   width: 100%;
-  height: 100%;
+  max-width: 100%;
+  height: auto;
   object-fit: contain;
   border-radius: 8px;
 }
@@ -188,7 +217,7 @@ background: url("/images/unifecaf-61a9f2a3ce38557cb22ede12355a89a3.jpeg") center
 #mini-gallery {
   grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 15px;
   width: 100%;
   margin-top: 20px;
@@ -198,13 +227,13 @@ background: url("/images/unifecaf-61a9f2a3ce38557cb22ede12355a89a3.jpeg") center
 #foto2,
 #foto3,
 #foto4 {
-  padding: 20px;
+  padding: 0;
   border-radius: 8px;
 }
 
 #mini-gallery img {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
   border-radius: 8px;
 }
@@ -213,8 +242,7 @@ background: url("/images/unifecaf-61a9f2a3ce38557cb22ede12355a89a3.jpeg") center
 #banner2 {
   width: 100%;
   min-height: 650px;
-  background: url("/images/medium_Capas_para_materiais_gratuitos_3_dce86b4cc1.png")
-  center center / cover no-repeat fixed;
+  background: url("/images/medium_Capas_para_materiais_gratuitos_3_dce86b4cc1.png") center center / cover no-repeat fixed;
 }
 
 /* Nossos livros */
@@ -241,9 +269,7 @@ background: url("/images/unifecaf-61a9f2a3ce38557cb22ede12355a89a3.jpeg") center
 
 #nossos-livros .content-row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, auto);
-  grid-auto-flow: column;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
   width: 100%;
   align-items: stretch;
@@ -257,6 +283,7 @@ background: url("/images/unifecaf-61a9f2a3ce38557cb22ede12355a89a3.jpeg") center
   flex-direction: column;
   gap: 16px;
   height: 100%;
+  min-height: 100%;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
@@ -268,9 +295,9 @@ background: url("/images/unifecaf-61a9f2a3ce38557cb22ede12355a89a3.jpeg") center
 }
 
 .book-entry img {
-  width: 100%;
-  max-width: 220px;
-  height: 320px;
+  width: min(100%, 220px);
+  aspect-ratio: 11 / 16;
+  height: auto;
   object-fit: cover;
   border-radius: 8px;
   margin: 0 auto;
@@ -284,7 +311,7 @@ background: url("/images/unifecaf-61a9f2a3ce38557cb22ede12355a89a3.jpeg") center
   line-height: 1.6;
 }
 
-/* NOVOS BOTÕES DOS LIVROS */
+/* Botões dos livros */
 .book-btn {
   display: block;
   width: 100%;
@@ -349,7 +376,7 @@ background: url("/images/unifecaf-61a9f2a3ce38557cb22ede12355a89a3.jpeg") center
 
 #container-unidades {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
   width: 100%;
   align-items: stretch;
@@ -408,7 +435,7 @@ background: url("/images/unifecaf-61a9f2a3ce38557cb22ede12355a89a3.jpeg") center
 
 #container-contatos {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
   width: 100%;
   align-items: stretch;
@@ -503,51 +530,108 @@ footer p {
 }
 
 /* Responsividade */
-@media (max-width: 799px) {
-  html {
-    scroll-padding-top: 90px;
+
+/* Até 1199px */
+@media (max-width: 1199px) {
+  .container {
+    max-width: 100%;
+    padding: 0 24px;
   }
 
-  header {
-    min-height: 35vh;
-    background-position: center center;
-    background-size: cover;
+  #conteudo1,
+  #conteudo2 {
+    padding: 0;
   }
 
-  header nav {
-    padding: 12px 10px;
-    background-color: rgba(0, 0, 0, 0.50);
+  #nossos-livros .content-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .nav-menu {
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .nav-menu li a {
-    font-size: 0.95rem;
-    padding: 8px 12px;
+  #container-unidades {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   #banner1,
-  #sobre-biblioteca,
-  #nossos-livros,
-  #unidades,
-  #contatos {
-    scroll-margin-top: 100px;
+  #banner2,
+  #unidades {
+    background-attachment: scroll;
+  }
+
+  #banner1 {
+    min-height: 480px;
+    background-size: contain;
+    background-position: center center;
+  }
+}
+
+/* Até 991px */
+@media (max-width: 991px) {
+  header nav {
+    padding: 14px 0;
+    background-color: rgba(0, 0, 0, 0.55);
+  }
+
+  .nav-wrapper {
+    justify-content: flex-end;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 14px);
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.94);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 12px 20px 20px;
+  }
+
+  .menu-toggle-checkbox:checked + .menu-toggle + .nav-menu {
+    display: flex;
+  }
+
+  .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle-checkbox:checked + .menu-toggle span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .nav-menu li {
+    width: 100%;
+  }
+
+  .nav-menu li a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    padding: 14px 12px;
   }
 
   #conteudo-sobre-biblioteca {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   #mini-gallery {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   #nossos-livros .content-row {
-    grid-template-columns: 1fr;
-    grid-auto-flow: row;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
   }
 
   #container-unidades {
@@ -558,43 +642,97 @@ footer p {
     grid-template-columns: 1fr;
   }
 
-  .book-entry img,
-  .unit img {
-    max-width: 100%;
-    height: auto;
-  }
-
   #banner1 {
-    min-height: 260px;
+    min-height: 380px;
   }
 
   #banner2 {
-    min-height: 280px;
-    background-attachment: scroll;
+    min-height: 380px;
+  }
+}
+
+/* Até 767px */
+@media (max-width: 767px) {
+  html {
+    scroll-padding-top: 90px;
   }
 
+  #banner1,
+  #sobre-biblioteca,
+  #nossos-livros,
+  #unidades,
   #contatos {
-    background-size: cover;
-    background-position: center center;
+    scroll-margin-top: 90px;
   }
 
-  .section {
+  .container {
+    padding: 0 16px;
+  }
+
+  #sobre-biblioteca,
+  #nossos-livros,
+  #unidades,
+  #contatos {
     padding: 40px 0;
   }
 
   h2 {
     font-size: 1.8rem;
     text-align: center;
+    margin-bottom: 22px;
   }
 
   p {
     font-size: 1rem;
+    margin-bottom: 18px;
   }
 
-  .book-btn {
-    min-height: 48px;
-    font-size: 1rem;
-    padding: 14px 18px;
+  #nossos-livros .content-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .book-entry,
+  .unit,
+  .contato-info,
+  .contato-redes {
+    padding: 18px;
+  }
+
+  .book-entry h3,
+  .unit h3,
+  .contato-redes h3 {
+    font-size: 1.2rem;
+  }
+
+  .book-entry img {
+    width: min(100%, 180px);
+  }
+
+  .unit img {
+    height: auto;
+    max-height: 260px;
+  }
+
+  #mini-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  #banner1 {
+    min-height: 260px;
+    background-size: contain;
+    background-position: center center;
+  }
+
+  #banner2 {
+    min-height: 240px;
+  }
+
+  #contatos {
+    min-height: auto;
+    background-size: cover;
+    background-position: center center;
   }
 
   .biblioteca-completa {
@@ -602,7 +740,56 @@ footer p {
     min-width: 0;
   }
 
-  .books-cta {
-    margin-top: 24px;
+  footer {
+    padding: 16px;
+  }
+
+  footer p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Até 480px */
+@media (max-width: 480px) {
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .nav-menu li a {
+    font-size: 0.92rem;
+    padding: 12px 10px;
+  }
+
+  #mini-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .book-entry img {
+    width: min(100%, 150px);
+  }
+
+  #banner1 {
+    min-height: 220px;
+  }
+
+  #banner2 {
+    min-height: 180px;
+  }
+
+  .book-entry,
+  .unit,
+  .contato-info,
+  .contato-redes {
+    padding: 16px;
+  }
+
+  #conteudo1 p,
+  #conteudo2 p {
+    padding: 16px;
+  }
+
+  .biblioteca-completa {
+    padding: 14px 20px;
+    font-size: 0.95rem;
   }
 }

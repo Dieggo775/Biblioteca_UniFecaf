@@ -13,13 +13,23 @@
   <!-- Cabeçalho e navegação -->
   <header class="background-img-default" role="banner">
     <nav aria-label="Navegação principal">
-      <ul class="nav-menu">
-        <li><a href="#banner1">Início</a></li>
-        <li><a href="#sobre-biblioteca">Sobre a Biblioteca</a></li>
-        <li><a href="#nossos-livros">Nossos Livros</a></li>
-        <li><a href="#unidades">Unidades</a></li>
-        <li><a href="#contatos">Contatos</a></li>
-      </ul>
+      <div class="nav-wrapper container">
+        <input type="checkbox" id="menu-toggle-checkbox" class="menu-toggle-checkbox">
+        
+        <label for="menu-toggle-checkbox" class="menu-toggle" aria-label="Abrir menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+
+        <ul class="nav-menu">
+          <li><a href="#banner1">Início</a></li>
+          <li><a href="#sobre-biblioteca">Sobre a Biblioteca</a></li>
+          <li><a href="#nossos-livros">Nossos Livros</a></li>
+          <li><a href="#unidades">Unidades</a></li>
+          <li><a href="#contatos">Contatos</a></li>
+        </ul>
+      </div>
     </nav>
   </header>
 
@@ -28,7 +38,7 @@
 
     <section id="banner1" class="content-auto-height background-img-default">
       <div class="container">
-        <!-- Banner de topo (pode ser usado só por background no CSS) -->
+        <!-- Banner de topo -->
       </div>
     </section>
 
@@ -38,7 +48,7 @@
         <h2>Sobre a Nossa Biblioteca</h2>
       </div>
 
-      <div id="conteudo-sobre-biblioteca">
+      <div id="conteudo-sobre-biblioteca" class="container">
 
         <div id="conteudo1">
           <p>
@@ -59,10 +69,10 @@
         </div>
 
         <div id="mini-gallery">
-          <img src="/images/Biblioteca1.png" id="foto1">
-          <img src="/images/Biblioteca2.jpg" id="foto2">
-          <img src="/images/Biblioteca3.jpg" id="foto3">
-          <img src="/images/Biblioteca4.jpg" id="foto4">
+          <img src="/images/Biblioteca1.png" id="foto1" alt="Imagem da biblioteca 1" loading="lazy">
+          <img src="/images/Biblioteca2.jpg" id="foto2" alt="Imagem da biblioteca 2" loading="lazy">
+          <img src="/images/Biblioteca3.jpg" id="foto3" alt="Imagem da biblioteca 3" loading="lazy">
+          <img src="/images/Biblioteca4.jpg" id="foto4" alt="Imagem da biblioteca 4" loading="lazy">
         </div>
       </div>
     </section>
