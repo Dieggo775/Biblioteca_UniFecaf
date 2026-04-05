@@ -24,10 +24,10 @@ CSS3
 
 Estrutura do projeto
 
-├── index.html
-├── CSS/
-│   └── style.css
-└── images/
+index.html
+CSS/
+  style.css
+images/
 
 Como executar o projeto
 Como este projeto é estático, basta abrir o arquivo HTML principal em um navegador para visualizar o site localmente.
