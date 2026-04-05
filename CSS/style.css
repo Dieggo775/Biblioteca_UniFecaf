@@ -40,7 +40,7 @@ img {
 
 .background-img-default {
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center center;
   background-size: cover;
 }
 
@@ -66,7 +66,53 @@ p {
 header {
   width: 100%;
   min-height: 50vh;
-  background: aqua url("/images/capa_menu.png") center / cover no-repeat;
+  background: aqua url("/images/Banner_principal.png") center center / cover no-repeat;
+  position: relative;
+}
+
+/* Menu fixo transparente */
+header nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.35);
+  padding: 20px 0;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.nav-menu li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-menu li a:hover {
+  background-color: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
+/* Corrige âncoras com menu fixo */
+#banner1,
+#sobre-biblioteca,
+#nossos-livros,
+#unidades,
+#contatos {
+  scroll-margin-top: 100px;
 }
 
 /* Main */
@@ -79,7 +125,7 @@ main {
 #banner1 {
   width: 100%;
   min-height: 500px;
-  background: blue url("/images/capa-default.png") center / cover no-repeat;
+  background: blue url("/images/lateral-geometric-tech-desk-2.c73629bf.webp") center center / cover no-repeat fixed;
 }
 
 /* Sobre biblioteca */
@@ -89,21 +135,51 @@ main {
   padding: 60px 0;
 }
 
-#sobre-biblioteca .container {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 30px;
+#conteudo-sobre-biblioteca {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  flex-direction: row;
 }
 
-#sobre-biblioteca p {
-  flex: 1 1 300px;
-  margin-bottom: 0;
+#conteudo1,
+#imagem-da-biblioteca,
+#conteudo2 {
+  padding: 20px;
+  border-radius: 8px;
 }
 
-#sobre-biblioteca img {
-  flex: 1 1 200px;
-  max-width: 250px;
+#imagem-da-biblioteca img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Segunda linha: 4 colunas */
+#mini-gallery {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+#foto1,
+#foto2,
+#foto3,
+#foto4 {
+  padding: 20px;
+  border-radius: 8px;
+}
+
+#mini-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 /* Banner 2 */
@@ -111,48 +187,114 @@ main {
   width: 100%;
   min-height: 650px;
   background: url("/images/medium_Capas_para_materiais_gratuitos_3_dce86b4cc1.png")
-    center / cover no-repeat fixed;
+  center center / cover no-repeat fixed;
 }
 
 /* Nossos livros */
 #nossos-livros {
   width: 100%;
-  min-height: 1000px;
-  background-color: rgba(4, 56, 228, 0.685);
+  background-color: rgba(4, 56, 228, 0.3);
   padding: 60px 0;
 }
 
 #nossos-livros .container {
+  display: block;
+}
+
+#nossos-livros .content-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, auto);
+  grid-auto-flow: column;
+  gap: 20px;
+  width: 100%;
+  align-items: stretch;
+}
+
+.book-entry {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  padding: 24px;
   display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 30px;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
-#nossos-livros img {
-  flex: 1 1 250px;
-  max-width: 280px;
+.book-entry h3 {
+  font-size: 1.5rem;
+  color: #222;
+  text-align: center;
+  margin-bottom: 4px;
 }
 
-#nossos-livros p {
-  flex: 2 1 400px;
+.book-entry img {
+  width: 100%;
+  max-width: 220px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 0 auto;
+}
+
+.book-entry p {
+  font-size: 1rem;
+  color: #333;
   margin-bottom: 0;
+  text-align: justify;
+  line-height: 1.6;
 }
 
 /* Unidades */
 #unidades {
   width: 100%;
   min-height: 100vh;
-  background: url("/images/bg-banner-pos.webp") center / cover no-repeat fixed;
+  background: url("/images/bg-banner-pos.webp") center center / cover no-repeat fixed;
   padding: 60px 0;
   color: white;
 }
 
-#unidades .container {
+#container-unidades {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  align-items: stretch;
+}
+
+.unit {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 24px;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 40px;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+}
+
+.unit h3 {
+  font-size: 1.5rem;
+  color: white;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.unit img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 0 auto;
+}
+
+.unit p {
+  font-size: 1rem;
+  color: white;
+  margin-bottom: 0;
+  text-align: justify;
+  line-height: 1.6;
 }
 
 #unidades h2,
@@ -161,24 +303,93 @@ main {
   color: white;
 }
 
-#unidades img {
-  flex: 1 1 350px;
-  max-width: 500px;
-}
-
-#unidades .texto {
-  flex: 1 1 300px;
-}
-
 /* Contatos */
 #contatos {
   width: 100%;
-  min-height: 650px;
+  min-height: 450px;
   background:
     rgba(253, 253, 253, 0.637)
     url("/images/UniFECAF-e-a-comunicacao-1024x1024.webp")
-    center / contain no-repeat;
+    center center / contain no-repeat;
   padding: 60px 0;
+}
+
+#container-contatos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 100%;
+  align-items: stretch;
+}
+
+.contato-info,
+.contato-redes {
+  background-color: rgba(255, 255, 255, 0.88);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.contato-info p,
+.contato-redes p {
+  color: #222;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.contato-info a,
+.contato-redes a {
+  color: #0438e4;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.contato-redes h3 {
+  font-size: 1.5rem;
+  color: #222;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.lista-redes {
+  list-style: none;
+}
+
+.lista-redes li {
+  margin-bottom: 14px;
+}
+
+.lista-redes a {
+  display: block;
+  background-color: rgba(4, 56, 228, 0.08);
+  padding: 12px 16px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.lista-redes a:hover {
+  color: white;
+  transform: translateY(-2px);
+}
+
+.lista-redes a.instagram:hover {
+  background-color: #E1306C;
+}
+
+.lista-redes a.facebook:hover {
+  background-color: #1877F2;
+}
+
+.lista-redes a.linkedin:hover {
+  background-color: #0077B5;
+}
+
+.lista-redes a.youtube:hover {
+  background-color: #FF0000;
+}
+
+.lista-redes a.whatsapp:hover {
+  background-color: #25D366;
 }
 
 /* Rodapé */
@@ -201,24 +412,87 @@ footer p {
 
 /* Responsividade */
 @media (max-width: 799px) {
+  html {
+    scroll-padding-top: 90px;
+  }
+
   header {
-    background-color: green;
-    background-image: none;
+    min-height: 35vh;
+    background-position: center center;
+    background-size: cover;
+  }
+
+  header nav {
+    padding: 12px 10px;
+    background-color: rgba(0, 0, 0, 0.50);
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .nav-menu li a {
+    font-size: 0.95rem;
+    padding: 8px 12px;
+  }
+
+  #banner1,
+  #sobre-biblioteca,
+  #nossos-livros,
+  #unidades,
+  #contatos {
+    scroll-margin-top: 100px;
+  }
+
+  #conteudo-sobre-biblioteca {
+    grid-template-columns: 1fr;
+  }
+
+  #mini-gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #nossos-livros .content-row {
+    grid-template-columns: 1fr;
+    grid-auto-flow: row;
+  }
+
+  #container-unidades {
+    grid-template-columns: 1fr;
+  }
+
+  #container-contatos {
+    grid-template-columns: 1fr;
+  }
+
+  .book-entry img,
+  .unit img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  #banner1 {
+    min-height: 260px;
   }
 
   #banner2 {
-    background-image: none;
+    min-height: 280px;
     background-attachment: scroll;
   }
 
-  #sobre-biblioteca .container,
-  #nossos-livros .container,
-  #unidades .container {
-    flex-direction: column;
+  #contatos {
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .section {
+    padding: 40px 0;
   }
 
   h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    text-align: center;
   }
 
   p {
